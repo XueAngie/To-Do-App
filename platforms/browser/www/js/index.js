@@ -10,12 +10,36 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.getElementById('btn').addEventListener('click', app.takephoto);
+
+    },
+    takephoto: function() {
+        let opts = {
+            quality: 80,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.JPEG,
+            cameraDirection: Camera.Direction.BACK,
+            targetWidth: 300,
+            targetHeight: 400
+        };
+
+        navigator.camera.getPicture(app.ftw, app.wtf, opts);
+    },
+    ftw: function(imgURI) {
+        document.getElementById('msg').textContent = imgURI;
+        document.getElementById('photo').src = imgURI;
 
     },
 
     // deviceready Event Handle
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        document.addEventListener('resume', app.onResume);
+    },
+    onResume: function() {
+        // alert("Welcome back");
     },
 
     // Update DOM on a Received Event
