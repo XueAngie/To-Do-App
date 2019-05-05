@@ -87,7 +87,7 @@ ul li.checked::before {
 /* Style the header */
 
 .header {
-    background-color: #f44336;
+    background-color: #3b5998;
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -133,4 +133,57 @@ input {
 
 .addBtn:hover {
     background-color: #bbb;
+}
+
+.noFill {
+    fill: none;
+}
+
+ul.todo li .buttons button.remove svg .fill {
+    fill: #c0cecb;
+}
+
+ul.todo li .buttons button.remove:hover svg .fill {
+    fill: #3b5998;
+}
+
+ul.todo li .buttons {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+ul.todo li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    background: none;
+    position: relative;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+ul.todo li .buttons button:last-of-type:before {
+    content: ' ';
+    width: 1px;
+    height: 30px;
+    background: #edf0f1;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+ul.todo li .buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
 }
